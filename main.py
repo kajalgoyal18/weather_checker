@@ -9,7 +9,7 @@ API_KEY = "87b77af2810961d1c6413bfec867b84f"  #OpenWeatherMap API key
 @app.route("/", methods=["GET", "POST"])
 def index():
     weather_data = None
-    if request.method == "POST":
+    if request.method == "POST": 
         city = request.form["city"]
         url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
         response = requests.get(url)
