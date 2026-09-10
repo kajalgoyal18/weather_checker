@@ -1,10 +1,14 @@
+import os
 from flask import Flask, render_template, request
+from dotenv import load_dotenv
 import requests
+load_dotenv() 
 
 app = Flask(__name__)
 
-API_KEY = "87b77af2810961d1c6413bfec867b84f"  #OpenWeatherMap API key
-
+API_KEY = os.getenv("OPENWEATHER_API_KEY")  #OpenWeatherMap API key
+if not API_KEY:
+    raise RuntimeError("OPENWEATHER_API_KEY not set. Did you create a .env file?")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
