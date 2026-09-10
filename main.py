@@ -7,8 +7,7 @@ load_dotenv()
 app = Flask(__name__)
 
 API_KEY = os.getenv("OPENWEATHER_API_KEY")  #OpenWeatherMap API key
-if not API_KEY:
-    raise RuntimeError("OPENWEATHER_API_KEY not set")
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
